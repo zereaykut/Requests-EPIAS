@@ -1,2 +1,2 @@
 # requests_epias_v2
-Sample code to retrieve and save data from EPİAŞ Transparency API of Türkiye Electricity Market using requests library.
+Sample code to retrieve and save data from EPİAŞ Transparency API of Türkiye Electricity Market ,that uses requests library.
