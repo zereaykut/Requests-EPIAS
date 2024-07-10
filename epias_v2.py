@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-import pandas as pd 
 import requests
 import json
 import logging
