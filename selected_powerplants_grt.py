@@ -1,0 +1,37 @@
+# -*- coding: utf-8 -*-
+import json
+import time
+from datetime import datetime, date, timedelta
+from src.utils import get_selected_powerplants, get_tgt, save_json
+from src.services import EpiasTransparencyerServices
+
+def main() -> None:
+    start_date = str(date.today() - timedelta(days=7))
+    end_date = str(date.today() - timedelta(days=1))
+
+    # start_date = "2024-08-20"
+    # end_date = "2024-08-21"
+
+    tgt = get_tgt()
+    epias_services = EpiasTransparencyerServices()
+
+    pps_info = get_selected_powerplants().get("powerplants_info")
+
+    for index, pp_info in enumerate(pps_info.items()):
+        grt_id = pp_info.get("id")
+        name = pp_info.get("name")
+        
+        print(f"{str(index).zfill(3)} - Santral: {name} ")
+
+        if (grt_id is not None):
+
+            pp_grt = epias_services.grt(tgt, start_date, end_date, grt_id)
+            if pp_grt.status_code in [200, 201]:
+                save_json(pp_grt.json(), f"pp_data/{name}_{grt_id}.json")
+            else:
+                save_json({"Error": pp_grt.text}, f"pp_data/error_{name}_{grt_id}.json")
+        time.sleep(2)
+
+if __name__ == "__main__":
+    main()
+

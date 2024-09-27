@@ -1,0 +1,22 @@
+{
+    "powerplants_info": [
+        {
+            "id": 2650,
+            "name": "2BZ \u00c7UBUK BES-40W000000015909W",
+            "eic": "40W000000015909W",
+            "shortName": "2BZ \u00c7UBUK BES"
+        },
+        {
+            "id": 2652,
+            "name": "3A AKYURT BES-40W0000000159126",
+            "eic": "40W0000000159126",
+            "shortName": "3A AKYURT BES"
+        },
+        {
+            "id": 2336,
+            "name": "3S KALE JES-40W000000012366M",
+            "eic": "40W000000012366M",
+            "shortName": "3S KALE JES"
+        }
+    ]
+}
