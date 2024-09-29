@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+import os
 import json
 import time
 from datetime import datetime, date, timedelta
@@ -15,21 +16,23 @@ def main() -> None:
     tgt = get_tgt()
     epias_services = EpiasTransparencyerServices()
 
-    pps_info = get_selected_powerplants().get("powerplants_info")
+    pps_info = get_selected_powerplants()
 
-    for index, pp_info in enumerate(pps_info.items()):
+    os.makedirs("data/selected_powerplants_data/", exist_ok=True)
+
+    for index, pp_info in enumerate(pps_info):
         grt_id = pp_info.get("id")
         name = pp_info.get("name")
         
-        print(f"{str(index).zfill(3)} - Santral: {name} ")
-
+        print(f"{str(index).zfill(3)} - {str(grt_id).zfill(4)} - Santral: {name} ")
+        
         if (grt_id is not None):
 
             pp_grt = epias_services.grt(tgt, start_date, end_date, grt_id)
             if pp_grt.status_code in [200, 201]:
-                save_json(pp_grt.json(), f"pp_data/{name}_{grt_id}.json")
+                save_json(pp_grt.json(), f"data/selected_powerplants_data/{name}_{grt_id}.json")
             else:
-                save_json({"Error": pp_grt.text}, f"pp_data/error_{name}_{grt_id}.json")
+                save_json({"Error": pp_grt.text}, f"data/selected_powerplants_data/error_{name}_{grt_id}.json")
         time.sleep(2)
 
 if __name__ == "__main__":
