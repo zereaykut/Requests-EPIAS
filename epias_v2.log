@@ -1,9 +1,0 @@
-2024-06-26 09:23:09,565 - INFO - startDate: 2024-07-03  endDate: 2024-06-25
-2024-06-26 09:23:09,565 - INFO - Running get_mcp function from 2024-07-03 to 2024-06-25
-2024-06-26 09:23:09,790 - ERROR - Error running get_mcp function: 400 Client Error: Bad Request for url: https://seffaflik.epias.com.tr/electricity-service/v1/markets/dam/data/mcp
-2024-06-26 09:23:09,790 - ERROR - Failed to receive MCP data
-2024-06-26 09:24:01,665 - INFO - startDate: 2024-06-19  endDate: 2024-06-25
-2024-06-26 09:24:01,665 - INFO - Running get_mcp function from 2024-06-19 to 2024-06-25
-2024-06-26 09:24:01,879 - INFO - Successfully run get_mcp function
-2024-06-26 09:24:01,879 - INFO - MCP received
-2024-06-26 09:24:01,881 - INFO - Successfully saved mcp.json file
